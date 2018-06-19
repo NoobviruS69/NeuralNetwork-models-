@@ -38,6 +38,14 @@ def conv2d(x , w):
 def maxPool(x):
     return tf.nn.max_pool(x , ksize=[1,2,2,1], strides= [1,2,2,1], padding='SAME')
 ```
+## Dense layer:
+```
+def Dense_connected(layer , size):
+    input_size = int(layer.get_shape()[1])
+    w = weights([input_size , size])
+    b = biases([size])
+    return tf.nn.relu(tf.matmul(layer , w) + b)
+```
 ## Convolutional layer function:
 ```
 def conv_layer(inputx , shape):
